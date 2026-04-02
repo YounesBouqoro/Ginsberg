@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Demo-Entwurf für Malerbetrieb Andre Ginsberg aus Remscheid – Malerarbeiten, Bodenbeläge, Trockenbau und Fassadenarbeiten seit 1995.">
+  <title>Malerbetrieb Andre Ginsberg — Remscheid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --surface: #ffffff;
+      --surface-2: #f1ede6;
+      --ink: #1d1d1b;
+      --muted: #5f5a53;
+      --line: rgba(29,29,27,0.10);
+      --brand: #b86a2d;
+      --brand-dark: #8f4f1f;
+      --forest: #2f4639;
+      --shadow: 0 20px 60px rgba(29,29,27,0.08);
+      --radius: 18px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .pill::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(184,106,45,0.15);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--brand);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+    p {
+      margin: 0;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 16px 40px rgba(184,106,45,0.24);
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: rgba(29,29,27,0.14);
+    }
+    .btn-secondary:hover { background: rgba(29,29,27,0.04); }
+
+    nav {
+      position: sticky;
+      top: 40px;
+      z-index: 80;
+      backdrop-filter: blur(16px);
+      background: rgba(16,16,16,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: white;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), #d28d48);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: white;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
+      flex-shrink: 0;
+    }
+    .brand-copy {
+      min-width: 0;
+    }
+    .brand-title {
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.76);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 14px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+    .nav-links a.nav-cta {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .mobile-menu {
+      display: none;
+      padding: 0 0 20px;
+    }
+    .mobile-menu a {
+      display: block;
+      text-decoration: none;
+      color: rgba(255,255,255,0.82);
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      padding: 110px 0 84px;
+      background:
+        radial-gradient(circle at top right, rgba(184,106,45,0.22), transparent 30%),
+        linear-gradient(135deg, #171717 0%, #24211d 45%, #2a241d 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.45));
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .hero-copy h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+    .hero-copy h1 span { color: #f1c08c; }
+    .hero-copy p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.76);
+      max-width: 700px;
+      margin-bottom: 34px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 42px;
+    }
+    .hero-stat {
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat strong {
+      display: block;
+      font-size: 24px;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .hero-stat span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,0.58);
+      font-weight: 800;
+    }
+    .hero-card {
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+    .hero-card-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f1c08c;
+      margin-bottom: 20px;
+    }
+    .hero-list {
+      display: grid;
+      gap: 14px;
+    }
+    .hero-list-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+    }
+    .hero-list-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .hero-list-no {
+      color: #f1c08c;
+      font-weight: 800;
+      min-width: 26px;
+    }
+
+    .trustbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .trustbar-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 18px 0;
+    }
+    .trust-item {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trust-item::before {
+      content: '✓';
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(184,106,45,0.12);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+    .section-grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+      gap: 34px;
+      align-items: start;
+    }
+    .section-head {
+      margin-bottom: 46px;
+    }
+    .section-head h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 16px;
+    }
+    .section-head p {
+      max-width: 760px;
+      font-size: 17px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: .2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184,106,45,0.35);
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--surface-2);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+    .service-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(184,106,45,0.10);
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .about-wrap {
+      background: linear-gradient(135deg, #243126 0%, #314537 100%);
+      color: white;
+      border-radius: 34px;
+      padding: 48px;
+      box-shadow: var(--shadow);
+    }
+    .about-wrap h2,
+    .about-wrap h3,
+    .about-wrap .eyebrow,
+    .about-wrap strong { color: white; }
+    .about-wrap .eyebrow { color: #d8b489; }
+    .about-wrap p { color: rgba(255,255,255,0.76); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(280px,.9fr);
+      gap: 32px;
+      align-items: start;
+    }
+    .about-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .about-point {
+      padding: 18px 18px 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .about-point strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    .about-side {
+      display: grid;
+      gap: 16px;
+    }
+    .fact-box,
+    .contact-box,
+    .area-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 24px;
+    }
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .fact {
+      border-radius: 16px;
+      background: rgba(255,255,255,0.07);
+      padding: 18px;
+      text-align: center;
+    }
+    .fact strong {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .fact span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.66);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+    .contact-box h3,
+    .area-box h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .contact-lines {
+      display: grid;
+      gap: 8px;
+    }
+    .contact-lines a,
+    .contact-lines span {
+      color: rgba(255,255,255,0.84);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-rows: 240px 240px;
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #2a2a28, #4b4032);
+      min-height: 220px;
+      border: 1px solid rgba(29,29,27,0.08);
+    }
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.12));
+    }
+    .gallery-item:nth-child(1) { grid-row: span 2; }
+    .gallery-item:nth-child(2) { background: linear-gradient(135deg, #595047, #302820); }
+    .gallery-item:nth-child(3) { background: linear-gradient(135deg, #7d684c, #3d3429); }
+    .gallery-item:nth-child(4) { background: linear-gradient(135deg, #28332b, #465848); }
+    .gallery-item:nth-child(5) { background: linear-gradient(135deg, #3d3d3b, #191918); }
+    .gallery-label {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      z-index: 2;
+      color: white;
+    }
+    .gallery-label strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .gallery-label span {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .gallery-note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(184,106,45,0.10);
+      border: 1px solid rgba(184,106,45,0.18);
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .contact-section {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 480px);
+      gap: 28px;
+      align-items: start;
+    }
+    .contact-panel,
+    .form-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .contact-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .contact-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--surface-2);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-item label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--brand);
+      margin-bottom: 4px;
+    }
+    .contact-item strong,
+    .contact-item a {
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .contact-item p { margin-top: 4px; }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .field label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-height: 54px;
+      border-radius: 16px;
+      border: 1px solid rgba(29,29,27,0.12);
+      background: #fff;
+      padding: 0 16px;
+      font: inherit;
+      color: var(--ink);
+      outline: none;
+      transition: .2s ease;
+    }
+    .field textarea {
+      min-height: 140px;
+      padding: 16px;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(184,106,45,0.45);
+      box-shadow: 0 0 0 4px rgba(184,106,45,0.10);
+    }
+    .hint {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #171717;
+      color: rgba(255,255,255,0.82);
+      padding: 30px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .9fr .9fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    .footer-brand p,
+    .footer-links a,
+    .footer-contact a,
+    .footer-contact span {
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .footer-col h4 {
+      margin: 0 0 10px;
+      color: white;
+      font-size: 14px;
+    }
+    .footer-links,
+    .footer-contact {
+      display: grid;
+      gap: 6px;
+    }
+    .footer-bottom {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      font-size: 12px;
+      color: rgba(255,255,255,0.42);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    #demo-banner{position:fixed;top:0;left:0;right:0;z-index:9999;pointer-events:none;background:#111;border-bottom:2px solid var(--brand);height:40px;display:flex;align-items:stretch;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;}
+    .demo-label{background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0 18px;display:flex;align-items:center;gap:7px;flex-shrink:0;}
+    .demo-label::before{content:'';width:7px;height:7px;background:#fff;border-radius:50%;animation:pulse 1.8s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+    .demo-text{color:#bbb;font-size:11.5px;padding:0 16px;display:flex;align-items:center;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .demo-text strong{color:#f0f0f0;font-weight:600;}
+    .demo-cta{background:transparent;border:none;border-left:1px solid #333;color:#f1c08c;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:0 20px;cursor:pointer;pointer-events:all;white-space:nowrap;transition:background .2s;font-family:inherit;}
+    .demo-cta:hover{background:rgba(184,106,45,.14);}
+    #demo-corner{position:fixed;bottom:20px;right:20px;z-index:9999;pointer-events:none;background:rgba(17,17,17,.88);border:1px solid var(--brand);border-radius:10px;padding:10px 13px;font-family:Helvetica Neue,Arial,sans-serif;font-size:10.5px;color:#9c9c9c;line-height:1.5;backdrop-filter:blur(4px);max-width:220px;}
+    #demo-corner span{display:block;color:#f1c08c;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;}
+    body{padding-top:40px;}
+
+    @media (max-width: 1100px) {
+      .hero-inner,
+      .services,
+      .contact-layout,
+      .about-grid,
+      .section-grid-2,
+      .footer-grid,
+      .trustbar-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .services { grid-template-columns: 1fr 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 240px 240px;
+      }
+      .gallery-item:nth-child(1) { grid-row: span 1; }
+    }
+
+    @media (max-width: 820px) {
+      nav { top: 40px; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-menu.open { display: block; }
+      .hero { padding: 84px 0 60px; }
+      .hero-inner,
+      .services,
+      .contact-layout,
+      .about-grid,
+      .section-grid-2,
+      .footer-grid,
+      .trustbar-inner,
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      section { padding: 72px 0; }
+      .about-wrap,
+      .contact-panel,
+      .form-panel,
+      .hero-card { padding: 24px; }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+      .gallery-item { min-height: 220px; }
+      .demo-text { display: none; }
+      #demo-corner { right: 12px; bottom: 12px; max-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="demo-banner">
+    <div class="demo-label">Demo-Entwurf</div>
+    <div class="demo-text">Diese Website ist ein <strong>kostenloser Vorschlag</strong> für den Malerbetrieb Andre Ginsberg in Remscheid.</div>
+    <button class="demo-cta" onclick="window.location.href='mailto:info@malerbetrieb-remscheid.de?subject=Interesse%20an%20neuer%20Website'">Interesse melden →</button>
+  </div>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#start" class="brand">
+        <div class="brand-mark">AG</div>
+        <div class="brand-copy">
+          <div class="brand-title">Malerbetrieb Andre Ginsberg</div>
+          <div class="brand-sub">Remscheid · seit 1995</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#start" class="active">Start</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ueber">Über mich</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#anfahrt">Anfahrt</a></li>
+        <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      </ul>
+
+      <button class="mobile-toggle" onclick="toggleNav()" aria-label="Menü öffnen">☰</button>
+    </div>
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#start" onclick="toggleNav()">Start</a>
+      <a href="#leistungen" onclick="toggleNav()">Leistungen</a>
+      <a href="#ueber" onclick="toggleNav()">Über mich</a>
+      <a href="#galerie" onclick="toggleNav()">Galerie</a>
+      <a href="#anfahrt" onclick="toggleNav()">Anfahrt</a>
+      <a href="#kontakt" onclick="toggleNav()">Kontakt</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="start">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="pill">Malerarbeiten · Bodenbeläge · Trockenbau</div>
+        <h1>Handwerk aus Remscheid.<br><span>Sauber geplant. Sauber umgesetzt.</span></h1>
+        <p>
+          Ihr Ansprechpartner für Malerarbeiten, Oberboden-Verlegung, Trockenbau, Fassadenarbeiten und Renovierungen im Bergischen Land. Persönlich betreut, fachgerecht ausgeführt und seit vielen Jahren im Markt etabliert.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#kontakt">Jetzt Anfrage senden</a>
+          <a class="btn btn-secondary" href="tel:+492191291189">02191 / 29 11 89</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>1995</strong>
+            <span>Selbstständig seit</span>
+          </div>
+          <div class="hero-stat">
+            <strong>1992</strong>
+            <span>Meisterprüfung</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Remscheid</strong>
+            <span>Standort</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-title">Leistungsschwerpunkte</div>
+        <div class="hero-list">
+          <div class="hero-list-item"><div class="hero-list-no">01</div><div>Maler- und Lackierarbeiten im Innen- und Außenbereich</div></div>
+          <div class="hero-list-item"><div class="hero-list-no">02</div><div>Tapezierarbeiten von Raufaser bis Fototapete</div></div>
+          <div class="hero-list-item"><div class="hero-list-no">03</div><div>Wärmedämmverbundsysteme, Balkonbeschichtungen und Rostschutz</div></div>
+          <div class="hero-list-item"><div class="hero-list-no">04</div><div>Bodenbeläge von Teppichboden bis Parkett sowie Trockenbau</div></div>
+          <div class="hero-list-item"><div class="hero-list-no">05</div><div>Renovierungen und Sanierungen mit Koordination weiterer Gewerke</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="trustbar">
+    <div class="container trustbar-inner">
+      <div class="trust-item">Persönlicher Ansprechpartner</div>
+      <div class="trust-item">Seit 1995 selbstständig</div>
+      <div class="trust-item">Traditionell & modern</div>
+      <div class="trust-item">Privat- und Renovierungsprojekte</div>
+    </div>
+  </div>
+
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Leistungen</div>
+        <h2>Alles, was Kunden im Alltag wirklich anfragen</h2>
+        <p>
+          Die bestehende Website zeigt klar, worauf der Betrieb fokussiert ist: klassische Malerarbeiten, Bodenbeläge, Trockenbau und Renovierungen – ohne unnötigen Ballast. Genau darauf ist diese Demo ausgerichtet.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>Malerarbeiten</h3>
+          <p>Saubere Anstriche im Innen- und Außenbereich für Wohnungen, Häuser und einzelne Räume – fachgerecht vorbereitet und ordentlich ausgeführt.</p>
+          <span class="service-tag">Innen & Außen</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🪟</div>
+          <h3>Lackierarbeiten</h3>
+          <p>Lackierungen für Bauteile und Oberflächen mit Fokus auf saubere Kanten, Haltbarkeit und ein stimmiges Gesamtbild.</p>
+          <span class="service-tag">Präzise Ausführung</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🧱</div>
+          <h3>Trockenbau</h3>
+          <p>Flexible Lösungen für Umbau, Raumtrennung und Modernisierung – sinnvoll kombiniert mit anschließenden Malerarbeiten.</p>
+          <span class="service-tag">Umbau & Modernisierung</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🪵</div>
+          <h3>Oberboden-Verlegung</h3>
+          <p>Bodenbeläge von Teppichboden bis Parkett – für Wohnräume, einzelne Zimmer oder komplette Renovierungsprojekte.</p>
+          <span class="service-tag">Teppich bis Parkett</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Fassade & Dämmung</h3>
+          <p>Wärmedämmverbundsysteme, Fassadenarbeiten, Balkonbeschichtungen und Rostschutz für Substanz, Optik und Werterhalt.</p>
+          <span class="service-tag">Schutz & Substanz</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>Renovierung aus einer Hand</h3>
+          <p>Auf Wunsch mit Koordination weiterer Gewerke wie Elektro, Fliesen, Tischler oder Sanitär – ein Ansprechpartner, weniger Reibung.</p>
+          <span class="service-tag">Ein Ansprechpartner</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber">
+    <div class="container">
+      <div class="about-wrap">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">Über mich</div>
+            <h2>Erfahrung, Meisterhandwerk und direkte Betreuung</h2>
+            <p>
+              Als gebürtiger Remscheider hat Andre Ginsberg 1992 die Meisterprüfung im Maler- und Lackiererhandwerk abgelegt und sich am 1. April 1995 selbstständig gemacht. Die bestehende Website positioniert den Betrieb bewusst persönlich statt anonym – genau das greift diese Demo auf.
+            </p>
+            <p style="margin-top:16px;">
+              Der inhaltliche Kern ist klar: klassische Handwerksleistung, laufende Weiterbildung und die Fähigkeit, sowohl traditionelle als auch moderne Malerarbeiten auszuführen. Das ist glaubwürdig und sollte digital auch genau so transportiert werden.
+            </p>
+
+            <div class="about-points">
+              <div class="about-point">
+                <strong>Persönlich statt austauschbar</strong>
+                <p>Kunden sehen direkt, wer ihr Ansprechpartner ist – das schafft Vertrauen schneller als generische Firmenfloskeln.</p>
+              </div>
+              <div class="about-point">
+                <strong>Fokus auf echte Leistungen</strong>
+                <p>Keine überladene Präsentation, sondern ein klarer Auftritt für Renovierungen, Malerarbeiten, Bodenbeläge und Trockenbau.</p>
+              </div>
+              <div class="about-point">
+                <strong>Weiterbildung als Qualitätsargument</strong>
+                <p>Die bestehende Seite betont neue Schulungen – das ist ein starkes Signal für saubere, zeitgemäße Ausführung.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-side">
+            <div class="fact-box">
+              <div class="fact-grid">
+                <div class="fact">
+                  <strong>1995</strong>
+                  <span>Selbstständig</span>
+                </div>
+                <div class="fact">
+                  <strong>1992</strong>
+                  <span>Meisterprüfung</span>
+                </div>
+                <div class="fact">
+                  <strong>1:1</strong>
+                  <span>Ansprechpartner</span>
+                </div>
+                <div class="fact">
+                  <strong>BGL</strong>
+                  <span>Region</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-box">
+              <h3>Direkter Kontakt</h3>
+              <div class="contact-lines">
+                <span>Andre Ginsberg</span>
+                <span>Morsbacher Straße 61 · 42857 Remscheid</span>
+                <a href="tel:+492191291189">Telefon: 02191 / 29 11 89</a>
+                <a href="mailto:info@malerbetrieb-remscheid.de">info@malerbetrieb-remscheid.de</a>
+              </div>
+            </div>
+
+            <div class="area-box" id="anfahrt">
+              <h3>Anfahrt & Einsatzgebiet</h3>
+              <p>
+                Standort in Remscheid. Die Kommunikation der aktuellen Website stellt klar den regionalen Bezug ins Bergische Land in den Vordergrund – das ist für Vertrauen und lokale Auffindbarkeit strategisch richtig.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Galerie</div>
+        <h2>Projektbilder verkaufen das Ergebnis deutlich besser als Text</h2>
+        <p>
+          Die bestehende Seite arbeitet bereits mit einer Bildergalerie. Für eine stärkere Demo ist die Galerie hier größer inszeniert, damit Vorher-Nachher-Eindrücke, Oberflächen und Details sofort wirken.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-label">
+            <strong>Wohnraum-Renovierung</strong>
+            <span>Großes Key Visual für saubere Innenräume, Wandflächen und Bodenarbeiten.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-label">
+            <strong>Fassade</strong>
+            <span>Außenansicht, Dämmung oder Beschichtung.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-label">
+            <strong>Trockenbau</strong>
+            <span>Umbau, Raumstruktur oder Detailaufnahme.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-label">
+            <strong>Bodenbeläge</strong>
+            <span>Teppich, Parkett oder sauberer Abschluss im Detail.</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-label">
+            <strong>Beschichtungen</strong>
+            <span>Balkon, Schutzsysteme oder Spezialoberflächen.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-note">
+        In der finalen Version sollten hier echte Projektfotos des Betriebs eingebunden werden. Genau an dieser Stelle entscheidet sich, ob die Website nur nett aussieht oder tatsächlich Anfragen zieht.
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="kontakt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Kontakt</div>
+        <h2>Kurzer Weg zur Anfrage</h2>
+        <p>
+          Die aktuelle Website setzt stark auf Telefon und Kontaktformular. Das ist richtig. Diese Demo zieht beides visuell nach vorne und reduziert Reibung im Anfrageprozess.
+        </p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-panel">
+          <h3 style="font-size:30px;margin-bottom:10px;">Kontaktinformationen</h3>
+          <p>Für Besichtigung, Angebot oder Rückfragen direkt anrufen oder die Anfrage über das Formular senden.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-ico">☎</div>
+              <div>
+                <label>Telefon</label>
+                <a href="tel:+492191291189">02191 / 29 11 89</a>
+                <p>Direkter Kontakt zum Betrieb</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">✉</div>
+              <div>
+                <label>E-Mail</label>
+                <a href="mailto:info@malerbetrieb-remscheid.de">info@malerbetrieb-remscheid.de</a>
+                <p>Ideal für Projektbeschreibung und Fotos</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">📍</div>
+              <div>
+                <label>Adresse</label>
+                <strong>Morsbacher Straße 61</strong>
+                <p>42857 Remscheid</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-panel">
+          <h3 style="font-size:30px;margin-bottom:10px;">Anfrage senden</h3>
+          <p style="margin-bottom:22px;">Ein kurzes, sauberes Formular reicht. Mehr Felder machen es nur unnötig schwer.</p>
+
+          <form class="form-grid" onsubmit="return false;">
+            <div class="form-row">
+              <div class="field">
+                <label>Name</label>
+                <input type="text" placeholder="Ihr Name">
+              </div>
+              <div class="field">
+                <label>Telefon</label>
+                <input type="tel" placeholder="02191 ...">
+              </div>
+            </div>
+            <div class="field">
+              <label>E-Mail</label>
+              <input type="email" placeholder="name@beispiel.de">
+            </div>
+            <div class="field">
+              <label>Leistung</label>
+              <select>
+                <option>Bitte auswählen</option>
+                <option>Malerarbeiten</option>
+                <option>Lackierarbeiten</option>
+                <option>Trockenbau</option>
+                <option>Oberboden-Verlegung</option>
+                <option>WDVS / Fassade</option>
+                <option>Balkonbeschichtung / Rostschutz</option>
+                <option>Renovierung / Sanierung</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Nachricht</label>
+              <textarea placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihre Anfrage."></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Unverbindlich anfragen</button>
+            <div class="hint">Datenschutzhinweis und rechtlicher Formulierungsteil können in der finalen Version direkt unter dem Formular ergänzt werden.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <h4>Malerbetrieb Andre Ginsberg</h4>
+          <p>
+            Demo-Entwurf für einen moderneren Webauftritt mit klarem Fokus auf Vertrauen, Leistungen und Kontakt.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="#start">Start</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#ueber">Über mich</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <div class="footer-contact">
+            <a href="tel:+492191291189">02191 / 29 11 89</a>
+            <a href="mailto:info@malerbetrieb-remscheid.de">info@malerbetrieb-remscheid.de</a>
+            <span>Morsbacher Straße 61</span>
+            <span>42857 Remscheid</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Demo-Konzept für Malerbetrieb Andre Ginsberg</span>
+        <span>Nicht live · nicht indexiert</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="demo-corner">
+    <span>Demo-Entwurf</span>
+    Nicht öffentlich indexiert. Erstellt als individueller Website-Vorschlag.
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = 'start';
+      sections.forEach(section => {
+        const top = section.offsetTop - 140;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
